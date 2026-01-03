@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 
 const createTransporter = () => {
-  return nodemailer.createTransport({
+  return nodemailer.createTransport({  // Correct method name here
     host: process.env.EMAIL_HOST,
     port: process.env.EMAIL_PORT,
     secure: false,
@@ -60,19 +60,4 @@ const sendApplicantConfirmation = async (application) => {
           <p><strong>Skills:</strong> ${application.primarySkills.join(', ')}</p>
         </div>
         <p>Best regards,<br><strong>The Hiring Team</strong></p>
-      </div>
-    `,
-  };
-
-  try {
-    await transporter.sendMail(mailOptions);
-    console.log('✅ Applicant confirmation sent');
-  } catch (error) {
-    console.error('❌ Error sending applicant confirmation:', error);
-  }
-};
-
-module.exports = {
-  sendAdminNotification,
-  sendApplicantConfirmation,
-};
+      </div
